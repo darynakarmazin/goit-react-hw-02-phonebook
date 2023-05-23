@@ -11,6 +11,12 @@ export class App extends Component {
     filter: '',
   };
 
+  deleteContact = contactId => {
+    this.setState(prevState => ({
+      contacts: prevState.contacts.filter(contact => contact.id !== contactId),
+    }));
+  };
+
   addContact = (name, number) => {
     const contact = {
       id: nanoid(),
@@ -44,7 +50,10 @@ export class App extends Component {
 
         <h2>Contacts</h2>
         <Filter value={this.state.filter} onChange={this.changeFilter} />
-        <ContactList filtredContacts={filtredContacts} />
+        <ContactList
+          filtredContacts={filtredContacts}
+          onDeleteContact={this.deleteContact}
+        />
       </div>
     );
   }
