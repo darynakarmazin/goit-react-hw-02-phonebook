@@ -1,8 +1,20 @@
 import React from 'react';
+import PropTypes from 'prop-types';
+
+import {
+  ListItem,
+  DeleteButton,
+} from 'components/contactListItem/ContactListItem.styled';
 
 export const ContactListItem = ({ name, number, onDeleteContact, id }) => (
-  <li>
+  <ListItem>
     {name} : {number}
-    <button onClick={() => onDeleteContact(id)}>Delete</button>
-  </li>
+    <DeleteButton onClick={() => onDeleteContact(id)}>Delete</DeleteButton>
+  </ListItem>
 );
+
+ContactListItem.propTypes = {
+  name: PropTypes.string.isRequired,
+  number: PropTypes.string.isRequired,
+  id: PropTypes.string.isRequired,
+};

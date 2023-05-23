@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Input, Form, Button } from 'components/contactForm/ContactForm.styled';
 
 export class ContactForm extends Component {
   state = {
@@ -22,9 +23,9 @@ export class ContactForm extends Component {
   render() {
     return (
       <>
-        <form onSubmit={this.handleSubmit}>
+        <Form onSubmit={this.handleSubmit}>
           <label htmlFor="inputName">Name</label>
-          <input
+          <Input
             type="text"
             name="name"
             pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
@@ -35,7 +36,7 @@ export class ContactForm extends Component {
             onChange={this.handleChange}
           />
           <label htmlFor="inputNumber">Number</label>
-          <input
+          <Input
             type="tel"
             name="number"
             pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
@@ -45,8 +46,8 @@ export class ContactForm extends Component {
             value={this.state.number}
             onChange={this.handleChange}
           />
-          <button type="submit">Add contact</button>
-        </form>
+          <Button type="submit">Add contact</Button>
+        </Form>
       </>
     );
   }

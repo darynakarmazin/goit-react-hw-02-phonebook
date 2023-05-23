@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { nanoid } from 'nanoid';
 
+import { Wrapper, Header } from './App.styled';
 import { ContactForm } from './contactForm/ContactForm';
 import { Filter } from './filter/Filter';
 import { ContactList } from './contactList/ContactList';
@@ -18,7 +19,8 @@ export class App extends Component {
   };
 
   addContact = (name, number) => {
-    if (this.state.contacts.find(
+    if (
+      this.state.contacts.find(
         contact => contact.name.toLowerCase() === name.toLowerCase()
       )
     ) {
@@ -51,8 +53,8 @@ export class App extends Component {
     const filtredContacts = this.getFiltredContacts();
 
     return (
-      <div>
-        <h1>Phonebook</h1>
+      <Wrapper>
+        <Header>Phonebook</Header>
         <ContactForm onSubmit={this.addContact} />
 
         <h2>Contacts</h2>
@@ -61,7 +63,7 @@ export class App extends Component {
           filtredContacts={filtredContacts}
           onDeleteContact={this.deleteContact}
         />
-      </div>
+      </Wrapper>
     );
   }
 }
