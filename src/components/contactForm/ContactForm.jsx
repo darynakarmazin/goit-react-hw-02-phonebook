@@ -22,7 +22,6 @@ export class ContactForm extends Component {
   render() {
     return (
       <>
-        <h2>Phonebook</h2>
         <form onSubmit={this.handleSubmit}>
           <label htmlFor="inputName">Name</label>
           <input
